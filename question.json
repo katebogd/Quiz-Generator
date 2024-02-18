@@ -1,0 +1,15 @@
+{"quiz" : [
+            {
+                "question_number": "number (1-10)",
+                "question": "string",
+                "answers": ["string", "string", "string", "string"],
+                "correct_answer": "string"
+            },
+            {
+                "question_number": "number (1-10)",
+                "question": "string",
+                "answers": ["string", "string", "string", "string"],
+                "correct_answer": "string"
+            }
+        ]
+    }

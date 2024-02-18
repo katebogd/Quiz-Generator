@@ -6,10 +6,44 @@ import subprocess
 import urllib
 import uuid
 import random
+import json
 
 from flask import redirect, render_template, session
 from functools import wraps
 
+import openai
+
+with open("key.txt","r") as file:
+    openai.api_key = file.readline()
+
+def get_system_prompt() -> str:
+    with open("topic.txt", "r") as f:
+        topic = f.readline()
+
+    with open('question.json') as f:
+        json_schema = json.loads(f.read())
+    json_schema_str = ', '.join([f"'{key}': {value}" for key, value in json_schema.items()])
+
+    prompt = "Create a quiz with 10 questions and 4 possible answers for each question. Separately remember the correct answer for each question. Use the following topic for the quiz: {topic}.Please respond with your analysis directly in JSON format (without using Markdown code blocks or any other formatting). The JSON schema should include: {json_schema}.".format(topic = topic, json_schema = json_schema_str)
+
+    return prompt, topic
+
+# function that takes in string argument as parameter 
+def comp(prompt, MaxToken=50, outputs=3):
+    with open('question.json') as f:
+        json_schema = json.loads(f.read())
+    response = openai.ChatCompletion.create( 
+        model="gpt-3.5-turbo", 
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        response_format={ "type": "json_object" }
+    )
+    output = response ["choices"][0]["message"]["content"]
+    return output
 
 def apology(message, code=400):
     """Render message as an apology to user."""
@@ -59,20 +93,3 @@ def lookup(symbol):
     except (requests.RequestException, ValueError, KeyError, IndexError):
         return None
 
-def create_url(length):
-    url = ""
-    a = [chr(x) for x in range(ord('a'), ord('z') + 1)] + [str(i) for i in range(10)]
-    while len(url) < length:
-        symbol = random.choice(a)
-        url = url + symbol
-    return url
-
-def is_ingredient_in_list (ingredients, name, unit):
-    for i in range(len(ingredients)):
-        if ingredients[i]["name"] == name and ingredients[i]["units"] == unit:
-            return i
-    return None
-
-def float_to_string(inputValue):
-    result = ('%.2f' % inputValue).rstrip('0').rstrip('.')
-    return '0' if result == '-0' else result
