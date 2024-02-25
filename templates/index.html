@@ -9,14 +9,18 @@
         <h1>Quiz Generator</h1>
     </div>
 
+    <div class="p-3 mb-3 justify-content-center">
+        <p class="subtitle">This site will generate a 10-question quiz with 4 possible answers to each question based on the topic entered below.</p>
+    </div>
+
     <div class="row p-3 mb-3 justify-content-center">
-        <h2>Enter the topic for the quiz:</h2>
+        <h3>Enter the topic for the quiz:</h3>
     </div>
     <form action="/" method="post">
-        <div class="mb-3 justify-content-md-center">
-            <input autocomplete="off" autofocus class="form-control mx-auto col col-lg-5" id="topic" name="topic" placeholder="Topic" type="text">
+        <div class="row mb-3 justify-content-center">
+            <textarea autocomplete="off" class="form-control mx-auto large-input" id="autoresizing" name="topic" placeholder="Topic" type="text" wrap="soft" rows ="5"></textarea>
         </div>
-        <div class="mb-3 justify-content-md-center">
+        <div class="row mb-3 justify-content-center">
             <button class="btn btn-primary col col-lg-5 generate" type="submit">Generate Quiz</button>
         </div>
     </form>

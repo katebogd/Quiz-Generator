@@ -30,7 +30,7 @@ def index():
             topic = request.form.get("topic")
         with open("topic.txt", "w") as file:
             file.write(topic)
-        return render_template("index.html")
+        return redirect("/quiz")
         
     else:
         return render_template("index.html")

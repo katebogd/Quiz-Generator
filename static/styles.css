@@ -9,10 +9,20 @@ h1 {
 }
 
 h2 {
+    color: #3682ae;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+h3 {
     color: #000000;
     text-align: center;
     font-family: sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -37,7 +47,105 @@ li .nav-item {
     line-height: normal;
 }
 
-button .generate {
-    background-color: #3682ae;
+button.generate {
+    background: #3682ae;
     height: 50px;
+    border-radius: 25px;
+    border-color: None;
+    border: 0px;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+}
+
+p.green {
+    background-color: #daf7e2;
+    padding: 10px;
+    padding-left: 30px;
+    border: #16732b;
+    border-radius: 5px;
+    color: #16732b;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+p.red {
+    background-color: #ffd9d9;
+    padding: 10px;
+    padding-left: 30px;
+    border: #a71717;
+    border-radius: 5px;
+    color: #a71717;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+textarea {
+    border-radius: 5px;
+    background: #FFF;
+    min-height: 200px;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    vertical-align: top;
+}
+
+#autoresizing {
+    display: block;
+    overflow: hidden;
+    resize: none;
+}
+
+#finalResult{
+    color: #000000;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+p.subtitle{
+    color: #000000;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+p.question-title {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+label.answer{
+    color: #000000;
+    padding-left: 5px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+div.form-check{
+    padding: 5px;
+    padding-left: 50px;
 }
